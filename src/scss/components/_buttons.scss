@@ -1,0 +1,33 @@
+@use "../utils" as *;
+
+.btn {
+    display: inline-block;
+    width: 8.75rem;
+    margin: 1.8rem;
+    padding: 1.25rem 1.875rem 1.125rem;
+    font-family: $ff-secondary;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.2;
+    color: $color-text-dark;
+    background-color: $color-background-button;
+    border-radius: 99rem;
+    transition: background-color 300ms ease-in, color 300ms ease;
+
+    &:hover {
+        background-color: rgba($color-background-button, 0.25);
+    }
+
+    @include mq("md") {
+        color: $color-text-dark;
+        background-color: $color-background-default;
+
+        &:hover {
+            color: $color-text-white;
+            background-color: rgba($color-background-default, 0.25);
+        }
+    }
+}
