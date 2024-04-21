@@ -1,0 +1,61 @@
+@use "../utils" as *;
+
+.heading {
+    font-family: $ff-secondary;
+    font-weight: 900;
+    color: $color-text-dark;
+
+    &--xl {
+        font-size: clamp(2.5rem, 1.618rem + 2.941vw, 3.5rem);
+        color: $color-text-white;
+        @include letter-spacing(18);
+    }
+
+    &--lg {
+        font-size: clamp(2rem, 1.559rem + 1.471vw, 2.5rem);
+    }
+
+    &--md {
+        font-size: $font-size-600;
+        font-weight: 700;
+        @include letter-spacing(2);
+    }
+
+    &--sm {
+        font-size: clamp(1rem, 0.779rem + 0.735vw, 1.25rem);
+        @include letter-spacing(26);
+    }
+}
+
+.text {
+    font-size: $font-size-500;
+    line-height: 2rem;
+    @include letter-spacing(-0.75);
+
+    &--sm {
+        font-size: $font-size-300;
+        line-height: 1.6875rem;
+    }
+
+    &--desc {
+        color: $color-text-secondary;
+    }
+
+    &--accent-01 {
+        color: $color-text-accent-01;
+    }
+
+    &--accent-02 {
+        color: $color-text-accent-02;
+    }
+
+    &--name {
+        font-family: $ff-secondary;
+        color: $color-text-dark;
+        @include letter-spacing(2);
+    }
+
+    &--sub-title {
+        font-size: $font-size-300;
+    }
+}

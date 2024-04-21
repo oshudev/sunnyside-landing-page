@@ -1,0 +1,39 @@
+@use "./variables" as *;
+
+@mixin mq($width, $type: min) {
+    @if map-has-key($breakpoints, $width) {
+        $width: map-get($breakpoints, $width);
+
+        @if $type == max {
+            $width: $width - 1px;
+        }
+
+        @media only scren and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin psuedo($display: block, $pos: absolute, $content: "") {
+    content: $content;
+    position: $pos;
+    display: $display;
+}
+
+@mixin cover-background($image-src) {
+    background-image: url($image-src);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left top;
+}
+
+@mixin letter-spacing($val) {
+    letter-spacing: calc($val / 100 * 1em);
+}
+
+@mixin center-block {
+    margin: {
+        right: auto;
+        left: auto;
+    }
+}

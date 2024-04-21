@@ -1,0 +1,15 @@
+@use "../utils" as *;
+
+body {
+    font-family: $ff-default;
+    font-size: $font-size-500;
+    color: $color-text-default;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
+}
+
+.h-wrapper {
+    position: relative;
+}

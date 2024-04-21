@@ -1,0 +1,33 @@
+/* Colors */
+$color-text-default: hsl(210, 9%, 39%);
+$color-text-secondary: hsl(232, 10%, 55%);
+$color-text-dark: hsl(211, 28%, 19%);
+$color-text-subtle: hsl(206, 4%, 67%);
+$color-text-white: hsl(0, 0%, 100%);
+$color-text-accent-01: hsl(167, 40%, 24%);
+$color-text-accent-02: hsl(198, 62%, 26%);
+$color-text-footer: hsl(167, 44%, 70%);
+$color-background-default: hsl(0, 0%, 100%);
+$color-background-footer: hsl(7, 99%, 70%);
+$color-background-button: hsl(51, 100%, 49%);
+$color-button-accent-01: hsl(51, 100%, 49%);
+$color-button-accent-02: hsl(7, 99%, 70%);
+
+/* Font Sizes */
+$font-size-300: 0.875rem;
+$font-size-400: 1rem;
+$font-size-500: 1.125rem;
+$font-size-600: 1.75rem;
+
+/* Typography */
+$ff-default: "Barlow", sans-serif;
+$ff-secondary: "Fraunces", sans-serif;
+
+/* Media Queries */
+$breakpoints: (
+    xs: 23.4375rem,
+    sm: 30rem,
+    md: 48rem,
+    lg: 64rem,
+    xl: 75rem,
+);
