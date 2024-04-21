@@ -8,7 +8,7 @@
             $width: $width - 1px;
         }
 
-        @media only scren and (#{$type}-width: $width) {
+        @media only screen and (#{$type}-width: $width) {
             @content;
         }
     }
