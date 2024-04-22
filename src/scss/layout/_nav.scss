@@ -1,0 +1,132 @@
+@use "../utils" as *;
+
+.header {
+    position: relative;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: clamp(2rem, 1.89rem + 0.368vw, 2.125rem);
+    padding-inline: clamp(1.5rem, 0.618rem + 2.941vw, 2.5rem);
+
+    &__logo {
+        width: clamp(7.75rem, 5.213rem + 8.456vw, 10.625rem);
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__menu {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5rem;
+        height: 1.125rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+            @include psuedo;
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+
+        span,
+        &::before,
+        &::after {
+            display: inline-block;
+            width: 100%;
+            height: 2px;
+            background-color: $color-background-default;
+        }
+
+        @include mq("md") {
+            display: none;
+        }
+    }
+
+    &__list {
+        position: absolute;
+        top: calc(100% + 3.125rem);
+        right: 0;
+        display: grid;
+        gap: 2rem;
+        margin-inline: 1.5rem;
+        padding-block: 2.5rem;
+        text-align: center;
+        background-color: $color-background-default;
+
+        &::before {
+            $dim: 1.5rem;
+            @include psuedo;
+            top: -$dim;
+            right: 0;
+            width: $dim;
+            height: $dim;
+            border-left: $dim solid transparent;
+            border-bottom: $dim solid $color-background-default;
+        }
+
+        @include mq("sm", "max") {
+            left: 0;
+        }
+
+        @include mq("sm") {
+            width: 329px;
+        }
+
+        @include mq("md") {
+            position: static;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            width: 100%;
+            margin-inline: 0.5rem;
+            padding-block: 0;
+            background-color: transparent;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    &__link {
+        position: relative;
+        text-decoration: none;
+        color: $color-text-secondary;
+
+        &::after {
+            @include psuedo;
+            bottom: -2px;
+            left: 0;
+            transform: scaleX(0);
+            width: 100%;
+            height: 2px;
+            background-color: $color-text-secondary;
+            transition: transform 350ms ease;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+        }
+
+        @include mq("md") {
+            color: $color-text-white;
+
+            &::after {
+                background-color: $color-background-default;
+            }
+        }
+    }
+}
