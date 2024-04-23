@@ -18,6 +18,7 @@
     }
 
     &__menu {
+        $space: 0.5rem;
         position: relative;
         display: flex;
         align-items: center;
@@ -48,10 +49,34 @@
             width: 100%;
             height: 2px;
             background-color: $color-background-default;
+            transition: top 200ms 200ms, transform 200ms,
+                background-color 200ms 100ms, -webkit-transform 200ms;
         }
 
         @include mq("md") {
             display: none;
+        }
+
+        &.header__menu--active {
+            &::before,
+            &::after {
+                transition: top 200ms, transform 200ms 140ms,
+                    -webkit-transform 200ms 140ms;
+            }
+
+            &::after {
+                bottom: 0.5rem;
+                transform: rotate(45deg);
+            }
+
+            &::before {
+                top: 0.5rem;
+                transform: rotate(-45deg);
+            }
+
+            span {
+                background-color: rgba($color-background-default, 0);
+            }
         }
     }
 
@@ -61,10 +86,12 @@
         right: 0;
         display: grid;
         gap: 2rem;
+        opacity: 0;
         margin-inline: 1.5rem;
         padding-block: 2.5rem;
         text-align: center;
         background-color: $color-background-default;
+        transition: opacity 300ms ease-in-out;
 
         &::before {
             $dim: 1.5rem;
@@ -75,6 +102,10 @@
             height: $dim;
             border-left: $dim solid transparent;
             border-bottom: $dim solid $color-background-default;
+        }
+
+        &.visible {
+            opacity: 1;
         }
 
         @include mq("sm", "max") {
@@ -90,6 +121,7 @@
             display: flex;
             align-items: center;
             gap: 3rem;
+            opacity: 1;
             width: 100%;
             margin-inline: 0.5rem;
             padding-block: 0;
