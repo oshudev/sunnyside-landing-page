@@ -2,9 +2,10 @@ import "./scss/main.scss";
 
 const hamburgerMenu = document.querySelector(".header__menu");
 const headerList = document.querySelector(".header__list");
+const body = document.querySelector("body");
 
 hamburgerMenu.addEventListener("click", () => {
-    document.querySelector("body").classList.toggle("no-scroll");
+    body.classList.toggle("no-scroll");
     hamburgerMenu.classList.toggle("header__menu--active");
 
     if (hamburgerMenu.classList.contains("header__menu--active")) {
@@ -31,6 +32,7 @@ window.onresize = window.onload = () => {
 
     if (!hamburgerMenu.classList.contains("header__menu--active")) {
         headerList.style.display = "none";
+        body.classList.remove("no-scroll");
     }
 
     if (viewWidth >= 768) {
