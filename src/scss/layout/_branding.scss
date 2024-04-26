@@ -1,0 +1,123 @@
+@use "../utils" as *;
+
+.branding {
+    .feature-two-panel {
+        display: block;
+
+        @include mq("lg") {
+            display: flex;
+
+            &.right {
+                flex-direction: row-reverse;
+            }
+
+            > * {
+                flex: 1 1 50%;
+            }
+        }
+    }
+
+    .split-panel-solid {
+        padding: 4rem 1.75rem;
+
+        @include mq("lg", "max") {
+            text-align: center;
+        }
+
+        @include mq("lg") {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .content-container {
+                max-width: 440px;
+            }
+        }
+
+        h2 {
+            margin-bottom: clamp(1.5rem, -1.803rem + 6.723vw, 2.5rem);
+            line-height: 2.4375rem;
+
+            @include mq("lg") {
+                @include letter-spacing(1);
+                line-height: 3.0625rem;
+            }
+        }
+
+        p {
+            margin-bottom: clamp(2rem, 0.349rem + 3.361vw, 2.5rem);
+            color: $color-text-secondary;
+            @include letter-spacing(-0.75);
+            line-height: 1.875rem;
+        }
+    }
+
+    .split-panel-element__link {
+        position: relative;
+        display: inline-block;
+        font-family: $ff-secondary;
+        font-size: $font-size-400;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+        @include letter-spacing(4);
+        line-height: 1.5625rem;
+        color: $color-text-dark;
+
+        &::after {
+            @include psuedo;
+            bottom: 0rem;
+            left: -0.5rem;
+            z-index: -1;
+            width: 8.5625rem;
+            height: 0.625rem;
+            border-radius: 999rem;
+            opacity: 0.25;
+            transition: opacity 300ms ease;
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+
+        &.accent-01 {
+            &::after {
+                background-color: $color-background-button;
+            }
+        }
+
+        &.accent-02 {
+            &::after {
+                background-color: $color-button-accent-02;
+            }
+        }
+
+        @include mq("lg") {
+            margin-left: 0.5rem;
+        }
+    }
+
+    .split-panel-media-container {
+        img {
+            width: 100%;
+        }
+
+        .mobile-image {
+            display: block;
+        }
+
+        .desktop-image {
+            display: none;
+        }
+
+        @include mq("lg") {
+            .mobile-image {
+                display: none;
+            }
+
+            .desktop-image {
+                display: block;
+            }
+        }
+    }
+}
