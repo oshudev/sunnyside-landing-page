@@ -2,14 +2,12 @@ import "./scss/main.scss";
 
 const hamburgerMenu = document.querySelector(".header__menu");
 const headerList = document.querySelector(".header__list");
-headerList.style.display = "none";
-headerList.ariaHidden = "true";
 
 hamburgerMenu.addEventListener("click", () => {
     document.querySelector("body").classList.toggle("no-scroll");
     hamburgerMenu.classList.toggle("header__menu--active");
 
-    if (headerList.style.display === "none") {
+    if (hamburgerMenu.classList.contains("header__menu--active")) {
         headerList.style.display = "";
         hamburgerMenu.ariaExpanded = true;
         headerList.ariaHidden = false;
@@ -28,12 +26,12 @@ hamburgerMenu.addEventListener("click", () => {
     }
 });
 
-window.addEventListener("resize", navBar);
-window.onload = navBar;
-
-function navBar() {
+window.onresize = window.onload = () => {
     const viewWidth = document.documentElement.clientWidth;
-    headerList.style.display = viewWidth < 768 ? "none" : "";
+
+    if (!hamburgerMenu.classList.contains("header__menu--active")) {
+        headerList.style.display = "none";
+    }
 
     if (viewWidth >= 768) {
         headerList.style.display = "";
@@ -44,7 +42,7 @@ function navBar() {
         hamburgerMenu.ariaHidden = true;
     } else {
         headerList.ariaHidden = true;
-        hamburgerMenu.ariaExpanded = true;
+        hamburgerMenu.ariaExpanded = false;
         hamburgerMenu.ariaHidden = false;
     }
-}
+};
