@@ -1,0 +1,90 @@
+@use "../utils" as *;
+
+.footer {
+    background-color: $color-background-footer;
+
+    .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        img {
+            width: 100%;
+        }
+
+        .mobile-image {
+            display: block;
+        }
+
+        .desktop-image {
+            display: none;
+        }
+
+        @include mq("md") {
+            grid-template-columns: repeat(4, 1fr);
+
+            .mobile-image {
+                display: none;
+            }
+
+            .desktop-image {
+                display: block;
+            }
+        }
+    }
+
+    &__nav {
+        display: block;
+        @include center-block;
+        padding-block: 3.875rem;
+        width: 18.625rem;
+        text-align: center;
+
+        svg path {
+            fill: $color-text-accent-01;
+            transition: fill 300ms ease;
+        }
+
+        svg:hover path {
+            fill: $color-text-white;
+        }
+
+        @include mq("xs", "max") {
+            padding-inline: 1.5rem;
+        }
+
+        @include mq("md") {
+            padding-block: 4.5rem;
+        }
+    }
+
+    &__logo {
+        display: block;
+        margin-bottom: 2.625rem;
+    }
+
+    &__list,
+    &__socials {
+        display: flex;
+        align-items: center;
+    }
+
+    &__list {
+        justify-content: space-between;
+        margin-bottom: 5.625rem;
+    }
+
+    &__socials {
+        justify-content: center;
+        gap: 1.75rem;
+    }
+
+    &__links {
+        text-decoration: none;
+        color: $color-text-footer;
+        transition: color 300ms ease;
+
+        &:hover {
+            color: $color-text-white;
+        }
+    }
+}
