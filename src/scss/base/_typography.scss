@@ -51,11 +51,13 @@
 
     &--name {
         font-family: $ff-secondary;
+        font-weight: 700;
         color: $color-text-dark;
         @include letter-spacing(2);
     }
 
     &--sub-title {
         font-size: $font-size-300;
+        color: $color-text-subtle;
     }
 }
